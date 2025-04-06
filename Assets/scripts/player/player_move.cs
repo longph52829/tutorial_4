@@ -5,7 +5,7 @@ public class player_move : MonoBehaviour
     Rigidbody2D rb;
     Animator ani;
     float movement;
-    public bool isGrounded, isJumping, doubleJump;
+    bool isGrounded, doubleJump;
 
     [SerializeField] float moveSpeed, jumpForce;
     [SerializeField] Transform groundCheck;
@@ -15,55 +15,74 @@ public class player_move : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
+        //print("isGrounded: " + isGrounded);
     }
 
     // Update is called once per frame
     void Update()
     {
         CheckGrounded();
+        //checkJump();
     }
 
     void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(movement * moveSpeed, rb.linearVelocity.y);
+
+        if (movement > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (movement < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+        checkAnimationFloat("move", Mathf.Abs(movement));
     }
 
     void OnMove(InputValue value)
     {
         movement = value.Get<float>();
-        print(movement);
     }
 
     void OnJump(InputValue value)
     {
-        if (value.isPressed && isGrounded)
+        if (value.isPressed)
         {
-            isJumping = true;
-        }
-        else if (value.isPressed && !isGrounded && doubleJump)
-        {
-            isJumping = true;
+            if (isGrounded)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                doubleJump = true;
+                //checkAnimationBool("is_jump", true);
+            }
+            else if (doubleJump)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                doubleJump = false;
+                //checkAnimationBool("is_double_jump", true);
+            }
         }
     }
 
     void CheckGrounded()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    }
 
-        if (isGrounded)
-        {
-            doubleJump = true;
-        }
+    // void checkJump()
+    // {
+    //     checkAnimationFloat("jump", rb.linearVelocity.y);
+    //     checkAnimationFloat("double_jump", rb.linearVelocity.y);
+    // }
 
-        if (isJumping && (doubleJump || isGrounded))
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            isJumping = false;
+    void checkAnimationBool(string name, bool condition)
+    {
+        ani.SetBool(name, condition);
+    }
 
-            if (!isGrounded && doubleJump)
-            {
-                doubleJump = false;
-            }
-        }
+    void checkAnimationFloat(string name, float value)
+    {
+        ani.SetFloat(name, value);
     }
 }
