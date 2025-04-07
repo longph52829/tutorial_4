@@ -13,4 +13,45 @@ public class player_col : MonoBehaviour
     {
         
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("fruit"))
+        {
+            var item = other.GetComponent<items>();
+
+            if (item != null)
+            {
+                item.hit();
+            }
+        }
+
+        if (other.CompareTag("quai"))
+        {
+            var quai = other.GetComponent<quai>();
+
+            if (quai != null)
+            {
+                quai.hit();
+            }
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("quai"))
+        {
+            hit();
+        }
+    }
+
+    void die()
+    {
+        Destroy(gameObject);
+    }
+
+    public void hit()
+    {
+        die();
+    }
 }

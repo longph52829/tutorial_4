@@ -15,7 +15,6 @@ public class player_move : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
-        //print("isGrounded: " + isGrounded);
     }
 
     // Update is called once per frame
