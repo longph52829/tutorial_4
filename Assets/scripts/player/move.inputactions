@@ -6,7 +6,7 @@
             "id": "908bb9a4-714f-46a9-bb87-d9c47b4d9783",
             "actions": [
                 {
-                    "name": "move",
+                    "name": "Move",
                     "type": "Value",
                     "id": "2e2bed69-51c0-4c05-830e-acc3fdb177d8",
                     "expectedControlType": "Axis",
@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "jump",
+                    "name": "Jump",
                     "type": "Button",
                     "id": "5ea19176-acc8-44e0-8a80-ea2a3ef9df83",
                     "expectedControlType": "",
@@ -32,7 +32,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "move",
+                    "action": "Move",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -43,7 +43,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "move",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -54,7 +54,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "move",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -65,7 +65,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "move",
+                    "action": "Move",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -76,7 +76,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "move",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -87,7 +87,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "move",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -95,10 +95,10 @@
                     "name": "",
                     "id": "1a94f667-6701-4763-8e4e-a119ef56b08c",
                     "path": "<Keyboard>/space",
-                    "interactions": "",
+                    "interactions": "Press,Press(behavior=1)",
                     "processors": "",
                     "groups": "",
-                    "action": "jump",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -109,7 +109,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "jump",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
