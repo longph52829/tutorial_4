@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 36625295a814d3e479cee033ffe2513d, type: 2}
+  m_Motion: {fileID: 7400000, guid: dfd1b2cc1a6924248bc31141bdfc5f0b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -86,7 +86,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 64f9d6a8690c25040a3c474dcc7edbc2, type: 2}
+    m_Motion: {fileID: 7400000, guid: 24bd39d56f426a544806f62d7023f3e1, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -94,7 +94,7 @@ BlendTree:
     m_DirectBlendParameter: jump
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 47589ebda36095a4eb3e27997481775a, type: 2}
+    m_Motion: {fileID: 7400000, guid: a822acf25ffe55f4caa25e7133c94565, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -130,7 +130,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 83c22144076e9ee4e8adbe5b4d3a3bd2, type: 2}
+  m_Motion: {fileID: 7400000, guid: 0ab36b9daa150b44ca88c1d33bb7dbfe, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -145,7 +145,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: d1139e3b311d23f4c9d1049c4b60168f, type: 2}
+    m_Motion: {fileID: 7400000, guid: 58955e5df79d05b429e9a02a07206eac, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -153,7 +153,7 @@ BlendTree:
     m_DirectBlendParameter: jump
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: b111834a01bcdd247bdd8d0eb7557ace, type: 2}
+    m_Motion: {fileID: 7400000, guid: 76922ea0694216a49a3882739fe3991c, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -173,7 +173,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mask_dude
+  m_Name: ninja_frog
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: jump
@@ -286,7 +286,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 64f9d6a8690c25040a3c474dcc7edbc2, type: 2}
+    m_Motion: {fileID: 7400000, guid: 24bd39d56f426a544806f62d7023f3e1, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -294,7 +294,7 @@ BlendTree:
     m_DirectBlendParameter: jump
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: c97e93d8ddd269a40a8e1f0ca13e12db, type: 2}
+    m_Motion: {fileID: 7400000, guid: 98d771fa06d0a654fb33a6bfd3214b7a, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1

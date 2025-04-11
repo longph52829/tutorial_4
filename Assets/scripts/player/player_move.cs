@@ -7,7 +7,7 @@ public class player_move : MonoBehaviour
     float movement;
     public bool isGrounded, doubleJump;
 
-    [SerializeField] float moveSpeed, jumpForce;
+    [SerializeField] float moveSpeed, jumpForce, radius;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,8 +22,9 @@ public class player_move : MonoBehaviour
     {
         CheckGrounded();
         checkJump();
+        jump();
 
-        if (Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown(KeyCode.UpArrow)))
+        /*if (Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown(KeyCode.UpArrow)))
         {
             if (isGrounded)
             {
@@ -42,7 +43,7 @@ public class player_move : MonoBehaviour
         {
             ani.SetBool("is_jump", false);
             ani.SetBool("is_double_jump", false);
-        }
+        }*/
     }
 
     void FixedUpdate()
@@ -66,49 +67,38 @@ public class player_move : MonoBehaviour
         movement = value.Get<float>();
     }
 
-    // void OnJump(InputValue value)
-    // {
-    //     // Debug.Log("OnJump called");
-    //     // Debug.Log($"isGrounded: {isGrounded}, Velocity Y: {rb.linearVelocity.y}");
-        
-    //     if (value.isPressed)
-    //     {
-    //         Debug.Log(value.isPressed);
-    //         Debug.Log("Jump pressed");
-    //         if (isGrounded)
-    //         {
-    //             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-    //             doubleJump = true;
-    //             ani.SetBool("is_jump", true);
-    //         }
-    //         else if (doubleJump)
-    //         {
-    //             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-    //             doubleJump = false;
-    //             ani.SetBool("is_double_jump", true);
-    //         }
-    //     }
-    //     else if(!value.isPressed)
-    //     {
-           
-    //         // Debug.Log("Jump released");
-    //         // Debug.Log($"isGrounded: {isGrounded}, Velocity Y: {rb.linearVelocity.y}");
-    //         if (isGrounded && rb.linearVelocity.y <= 0)
-    //         {
-    //             ani.SetBool("is_jump", false);
-    //             ani.SetBool("is_double_jump", false);
-    //         }
-    //     }
-    // }
-
     void CheckGrounded()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, radius, groundLayer);
     }
 
     void checkJump()
     {
         ani.SetFloat("jump", rb.linearVelocity.y);
         ani.SetFloat("double_jump", rb.linearVelocity.y);
+    }
+    
+    void jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown(KeyCode.UpArrow)))
+        {
+            if (isGrounded)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                doubleJump = true;
+                ani.SetBool("is_jump", true);
+            }
+            else if (doubleJump)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                doubleJump = false;
+                ani.SetBool("is_double_jump", true);
+            }
+        }
+        else if (isGrounded && rb.linearVelocity.y <= 0)
+        {
+            ani.SetBool("is_jump", false);
+            ani.SetBool("is_double_jump", false);
+        }
     }
 }
